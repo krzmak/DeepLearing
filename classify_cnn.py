@@ -79,4 +79,4 @@ cnn_model.load_state_dict(checkpoint['model'])
 cnn_model = cnn_model.eval()
 
 # Przykład użycia funkcji klasyfikacji
-classify(cnn_model, image_transforms, "Val/Dziwne/40.jpg", classes)
+classify(cnn_model, image_transforms, "Val/Dziwne/moje1.jpg", classes)
