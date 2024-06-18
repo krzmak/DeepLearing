@@ -68,9 +68,13 @@ def classify(model, image_transforms, image_path, classes):
 
     with torch.no_grad():
         output = model(image)
-
+        probabilities = F.softmax(output, dim=1)
+    
     _, predicted = torch.max(output.data, 1)
-    print(classes[predicted.item()])
+    print(f"Predykcja: {classes[predicted.item()]}")
+    
+    for idx, class_name in enumerate(classes):
+        print(f"{class_name}: {probabilities[0][idx].item() * 100:.2f}%")
 
 # Wczytanie stanu modelu
 cnn_model = SimpleCNN(num_classes=20)
@@ -79,4 +83,4 @@ cnn_model.load_state_dict(checkpoint['model'])
 cnn_model = cnn_model.eval()
 
 # Przykład użycia funkcji klasyfikacji
-classify(cnn_model, image_transforms, "Val/Dziwne/moje1.jpg", classes)
+classify(cnn_model, image_transforms, "Val/Moje/kaczka.jpg", classes)
