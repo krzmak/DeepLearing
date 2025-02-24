@@ -9,11 +9,11 @@ Simple project for classification of traffic signs images
 
 ## Info
 
-- In this project I created and trained simple custom Cnn model using Pytorch liblary and then compared it to resnet18
-- Model can classify 20 traffic signs
-- Cusmtom model got best acc of 98.374% while resnet got 99.187%
-- To train model use **`model_cnn.py`** or **`model_resnet.py`**
-- To classify single image use **`classify_cnn.py`** or **`classify_resnet.py`**
+- In this project, I created and trained simple custom Cnn model using Pytorch library and then compared it to ResNet-18.
+- The model can classify 20 traffic signs.
+- Custom model achived best acc of 98.374%, while resnet achived 99.187%.
+- To train model, use **`model_cnn.py`** or **`model_resnet.py`**.
+- To classify a single image, use **`classify_cnn.py`** or **`classify_resnet.py`**
 
 ## Tech
 
