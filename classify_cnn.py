@@ -60,7 +60,6 @@ image_transforms = transforms.Compose([
     transforms.Normalize(torch.Tensor(mean), torch.Tensor(std))
 ])
 
-# Funkcja klasyfikacji
 def classify(model, image_transforms, image_path, classes):
     image = Image.open(image_path)
     image = image_transforms(image).float()
@@ -76,11 +75,9 @@ def classify(model, image_transforms, image_path, classes):
     for idx, class_name in enumerate(classes):
         print(f"{class_name}: {probabilities[0][idx].item() * 100:.2f}%")
 
-# Wczytanie stanu modelu
 cnn_model = SimpleCNN(num_classes=20)
 checkpoint = torch.load('best_model_cnn_checkpoint.pth.tar')
 cnn_model.load_state_dict(checkpoint['model'])
 cnn_model = cnn_model.eval()
 
-# Przykład użycia funkcji klasyfikacji
-classify(cnn_model, image_transforms, "Val/Moje/kaczka.jpg", classes)
+classify(cnn_model, image_transforms, "Val/B36/17.jpg", classes)

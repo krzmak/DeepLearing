@@ -52,7 +52,7 @@ loss_fn = nn.CrossEntropyLoss()
 
 optimizer = optim.SGD(resnet18_model.parameters(), lr=0.01, momentum=0.9, weight_decay=0.003)
 
-def train_nn(model = resnet18_model, train_loader = train_loader, test_loader = test_loader, crtiterion = loss_fn, optimiser = optimizer, n_epochs = 100):
+def train_nn(model = resnet18_model, train_loader = train_loader, test_loader = test_loader, crtiterion = loss_fn, optimiser = optimizer, n_epochs = 20):
     best_acc = 0
 
     for epoch in range(n_epochs):
@@ -131,7 +131,7 @@ def save_checkpoint(model, epoch , optimiser, best_acc):
     }
     torch.save(state, 'best_model_checkpoint.pth.tar')
 
-train_nn(model = resnet18_model, train_loader = train_loader, test_loader = test_loader, crtiterion = loss_fn, optimiser = optimizer, n_epochs = 100)
+train_nn(model = resnet18_model, train_loader = train_loader, test_loader = test_loader, crtiterion = loss_fn, optimiser = optimizer)
 
 
 checkpoint = torch.load('best_model_checkpoint.pth.tar')

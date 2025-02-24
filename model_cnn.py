@@ -65,7 +65,7 @@ cnn_model = cnn_model.to(device)
 loss_fn = nn.CrossEntropyLoss()
 optimizer = optim.SGD(cnn_model.parameters(), lr=0.01, momentum=0.9, weight_decay=0.003)
 
-def train_nn(model, train_loader, test_loader, criterion, optimizer, n_epochs=100):
+def train_nn(model, train_loader, test_loader, criterion, optimizer, n_epochs=20):
     best_acc = 0
 
     for epoch in range(n_epochs):
@@ -142,7 +142,7 @@ def save_checkpoint(model, epoch, optimizer, best_acc):
     }
     torch.save(state, 'best_model_cnn_checkpoint.pth.tar')
 
-train_nn(model=cnn_model, train_loader=train_loader, test_loader=test_loader, criterion=loss_fn, optimizer=optimizer, n_epochs=100)
+train_nn(model=cnn_model, train_loader=train_loader, test_loader=test_loader, criterion=loss_fn, optimizer=optimizer)
 
 checkpoint = torch.load('best_model_cnn_checkpoint.pth.tar')
 
